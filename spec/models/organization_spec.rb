@@ -5,8 +5,17 @@ RSpec.describe Organization, type: :model do
     Organization.new()
   end
 
-  it "checks for a name attribute" do
-    expect(Organization).to respond_to(:name)
+  it "has all of the expected attributes" do
+    organization = Organization.new()
+    expect(organization).to respond_to(
+      :email,
+      :name,
+      :phone,
+      :status,
+      :primary_name,
+      :secondary_name,
+      :secondary_phone
+    )
   end
 
 #   it "checks for a email attribute" do
