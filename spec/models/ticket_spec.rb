@@ -5,8 +5,15 @@ RSpec.describe Ticket, type: :model do
     Ticket.new()
   end
 
-  it "checks for a name attribute" do
-    expect(Ticket).to respond_to(:name)
+  it "has all of the expected attributes" do
+    ticket = Ticket.new()
+    expect(ticket).to respond_to(
+      :name,
+      :phone,
+      :region_id,
+      :resource_category_id
+    )
+    
   end
 
 end
