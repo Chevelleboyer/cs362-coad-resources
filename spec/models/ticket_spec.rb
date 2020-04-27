@@ -1,9 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe Ticket, type: :model do
-  it "exists" do
-    Ticket.new()
-  end
 
   it "has all of the expected attributes" do
     ticket = Ticket.new()
