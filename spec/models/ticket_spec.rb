@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Ticket, type: :model do
 
-  let(:ticket) {build(:region)}
+  let(:ticket) {build(:ticket)}
 
   it "has a name" do
     expect(ticket).to respond_to(:name)
