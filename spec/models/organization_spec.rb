@@ -5,9 +5,6 @@ RSpec.describe Organization, type: :model do
     Organization.new()
   end
 
-<<<<<<< HEAD
-	let(:organization) { Organization.new }
-
 	describe "attributes" do
 
 		it "should respond to agreement_one" do
