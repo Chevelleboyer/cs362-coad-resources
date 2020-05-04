@@ -156,5 +156,14 @@ RSpec.describe Organization, type: :model do
 
 	end
 
+	describe "#approve" do
+
+		it "checks status is approved" do
+			organization.approve
+			expect(organization.status).to eq("approved")
+		end
+
+	end
+
 end
 
