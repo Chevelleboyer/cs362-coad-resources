@@ -30,6 +30,11 @@ RSpec.describe ResourceCategory, type: :model do
       resource_category.deactivate
       expect(resource_category.inactive?).to be true
     end
+    
+    it "responds to to_s with name" do
+      res_cat_name = resource_category.to_s
+      expect(res_cat_name).to eq("FAKE")
+    end
 
   end
 end
