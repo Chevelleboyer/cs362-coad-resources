@@ -19,4 +19,10 @@ RSpec.describe ResourceCategory, type: :model do
     it { should have_many(:tickets) }
   end
 
+  describe "methods" do
+    it "sets active to true" do
+      resource_category.activate
+      expect(resource_category.inactive?).to be false
+    end
+  end
 end
