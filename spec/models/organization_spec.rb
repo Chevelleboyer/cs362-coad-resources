@@ -1,9 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Organization, type: :model do
-  it "exists" do
-    Organization.new()
-  end
+
+  let(:organization) {build(:organization)}
 
   describe "attributes" do
   	
@@ -66,7 +65,7 @@ RSpec.describe Organization, type: :model do
   	end  
   	it "should respond to transportation" do
   	  expect(organization).to respond_to(:transportation)
-	end  
+	end
   end  
 
   describe "relationships" do  
@@ -121,11 +120,19 @@ RSpec.describe Organization, type: :model do
   	end  
   end  
 
-  describe "#approve" do  
-  	it "checks status is approved" do
+  describe "methods" do  
+  	it "sets status to approved" do
   	  organization.approve
   	  expect(organization.status).to eq("approved")
-  	end  
+	end  
+	it "sets status to rejected" do
+  	  organization.reject
+  	  expect(organization.status).to eq("rejected")
+	end  
+	it "responds to to_s with name" do
+  	  org_name = organization.to_s
+  	  expect(org_name).to eq("FAKE")
+	end  
   end
 
 end  
