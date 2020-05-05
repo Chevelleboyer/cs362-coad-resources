@@ -20,9 +20,16 @@ RSpec.describe ResourceCategory, type: :model do
   end
 
   describe "methods" do
+
     it "sets active to true" do
       resource_category.activate
       expect(resource_category.inactive?).to be false
     end
+
+    it "sets active to false" do
+      resource_category.deactivate
+      expect(resource_category.inactive?).to be true
+    end
+
   end
 end
