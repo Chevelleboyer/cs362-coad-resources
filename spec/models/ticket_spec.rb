@@ -37,6 +37,11 @@ RSpec.describe Ticket, type: :model do
       expect(ticket.captured?).to be false
     end
 
+    it "responds to to_s with Ticket (id)" do
+      ticket_name = ticket.to_s
+      expect(ticket_name).to eq("Ticket 1")
+    end
+
   end
 
 
