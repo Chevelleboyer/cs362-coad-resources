@@ -6,7 +6,7 @@ RSpec.describe Organization, type: :model do
   end
 
 	describe "attributes" do
-
+        
 		it "should respond to agreement_one" do
 			expect(organization).to respond_to(:agreement_one)
 		end
@@ -165,6 +165,6 @@ RSpec.describe Organization, type: :model do
 		end
 
 	end
-
+    
 end
 
