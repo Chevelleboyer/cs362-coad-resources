@@ -33,6 +33,10 @@ RSpec.describe Ticket, type: :model do
       expect(ticket.open?).to be true
     end
 
+    it "it has no organization by default" do
+      expect(ticket.captured?).to be false
+    end
+
   end
 
 
