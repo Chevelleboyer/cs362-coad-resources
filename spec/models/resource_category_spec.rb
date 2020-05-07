@@ -36,5 +36,11 @@ RSpec.describe ResourceCategory, type: :model do
       expect(res_cat_name).to eq("FAKE")
     end
 
+    it "finds or creates unspecified resource category" do
+      unspecified_res_cat = ResourceCategory.unspecified
+      unspec_res_cat_name = unspecified_res_cat.to_s
+      expect(unspec_res_cat_name).to eq("Unspecified")
+    end
+
   end
 end
