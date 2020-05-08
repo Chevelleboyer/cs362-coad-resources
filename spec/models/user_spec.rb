@@ -7,6 +7,10 @@ RSpec.describe User, type: :model do
     it { should validate_presence_of(:email)}
   end
 
+  describe "relationships" do
+    it { should belong_to(:organization).optional }
+  end
+
   describe "methods" do
     it "responds to to_s with the user email" do
       user_email = user.to_s
