@@ -18,4 +18,11 @@ RSpec.describe DashboardHelper, type: :helper do
     expect(dashboard_for(user)).to eq("admin_dashboard")
   end 
 
+  it "returns organization_submitted_dashboard" do
+    user = double()
+    user.stub(:admin?).and_return(false)
+    user.stub_chain(:organization, :submitted?).and_return(true)
+    expect(dashboard_for(user)).to eq("organization_submitted_dashboard")
+  end
+
 end
