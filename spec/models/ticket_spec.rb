@@ -51,12 +51,26 @@ RSpec.describe Ticket, type: :model do
       expect(open_tickets).to include(ticket_persist)
     end
 
+  end
+
+  describe "::closed" do
+
     it "gets closed tickets" do
       ticket = create(:ticket, :closed)
       open_tickets = Ticket.open
       expect(open_tickets).not_to include(ticket)
     end
 
+  end
+
+  describe "::all_organization" do
+
+    it "gets tickets that are open with an organization" do
+      ticket = create(:ticket, :open, :organization)
+      all_organization = Ticket.all_organization
+      expect(all_organization).to include(ticket)
+    end
+    
   end
 
 end
