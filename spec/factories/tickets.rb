@@ -15,5 +15,10 @@ FactoryBot.define do
    		closed { true }
    	end
 
+   	trait :organization do
+   		organization
+   	end
+
   end
+
 end
