@@ -42,4 +42,15 @@ RSpec.describe Ticket, type: :model do
       expect(ticket_name).to eq("Ticket #{ticket.id}")
     end
   end
+
+  # describe "::open" do
+
+  #   it "gets open tickets with no organization" do
+  #     ticket_persist = create(:ticket, :open)
+  #     open_tickets = Ticket.open
+  #     expect(open_tickets).to include(ticket_persist)
+  #   end
+
+  # end
+
 end
