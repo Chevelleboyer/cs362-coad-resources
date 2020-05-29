@@ -43,14 +43,14 @@ RSpec.describe Ticket, type: :model do
     end
   end
 
-  # describe "::open" do
+  describe "::open" do
 
-  #   it "gets open tickets with no organization" do
-  #     ticket_persist = create(:ticket, :open)
-  #     open_tickets = Ticket.open
-  #     expect(open_tickets).to include(ticket_persist)
-  #   end
+    it "gets open tickets with no organization" do
+      ticket_persist = create(:ticket, :open)
+      open_tickets = Ticket.open
+      expect(open_tickets).to include(ticket_persist)
+    end
 
-  # end
+  end
 
 end
