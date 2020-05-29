@@ -8,7 +8,11 @@ FactoryBot.define do
    	resource_category
 
    	trait :open do
-   		closed {false}
+   		closed { false }
+   	end
+
+   	trait :closed do
+   		closed { true }
    	end
 
   end
