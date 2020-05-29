@@ -6,7 +6,6 @@ FactoryBot.define do
     sequence(:id, 1) { |n| n }
    	region
    	resource_category
-   	phone { '6178888888' }
 
    	trait :open do
    		closed {false}
