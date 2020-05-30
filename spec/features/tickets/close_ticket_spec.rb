@@ -5,7 +5,8 @@ RSpec.describe 'Closing a ticket', type: :feature do
     let(:region) { create(:region) }
     let(:organization) { create(:organization, :approved) }
     let(:user) { create(:user, organization: organization) }
-    let(:ticket) { create(:ticket, organization: user.organization, region: region, resource_category: resource_category,) } 
+    let(:ticket) { create(:ticket, organization: user.organization, 
+        region: region, resource_category: resource_category,) } 
 
     context "user with organization" do
       it "closes a ticket" do
@@ -16,10 +17,7 @@ RSpec.describe 'Closing a ticket', type: :feature do
         click_on("Close")
         visit(ticket_path(ticket.id))
         expect(page).to have_no_link("Close")
-
-        #Close button is acting as expected, but the test
-        #below is still failing, not sure why
-        #expect(ticket.open?).to be false
+        expect(ticket.captured?).to be true
       end
     end
 end
