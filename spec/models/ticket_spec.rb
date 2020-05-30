@@ -73,4 +73,15 @@ RSpec.describe Ticket, type: :model do
     
   end
 
+  describe "::organization" do
+
+    it "gets an open ticket with a specific organization id" do
+      ticket = create(:ticket, :open, :organization)
+      id = ticket.organization.id
+      tickets = Ticket.organization(id)
+      expect(tickets).to include(ticket)
+    end
+
+  end
+
 end
