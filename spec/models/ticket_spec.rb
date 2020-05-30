@@ -84,4 +84,15 @@ RSpec.describe Ticket, type: :model do
 
   end
 
+  describe "::closed_organization" do
+
+    it "gets a closed ticket with a specific organization id" do
+      ticket = create(:ticket, :closed, :organization)
+      id = ticket.organization.id
+      tickets = Ticket.organization(id)
+      expect(tickets).not_to include(ticket)
+    end
+
+  end
+
 end
