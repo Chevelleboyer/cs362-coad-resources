@@ -19,6 +19,14 @@ FactoryBot.define do
    		organization
    	end
 
+    trait :region do
+      region
+    end
+
+    trait :resource_category do
+      resource_category
+    end
+
   end
 
 end

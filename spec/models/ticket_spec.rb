@@ -84,4 +84,37 @@ RSpec.describe Ticket, type: :model do
 
   end
 
+  describe "::closed_organization" do
+
+    it "gets a closed ticket with a specific organization id" do
+      ticket = create(:ticket, :closed, :organization)
+      id = ticket.organization.id
+      tickets = Ticket.organization(id)
+      expect(tickets).not_to include(ticket)
+    end
+
+  end
+
+  describe "::region" do
+
+    it "gets a ticket with a specific region id" do
+      ticket = create(:ticket, :region)
+      region_id = ticket.region.id
+      tickets = Ticket.region(region_id)
+      expect(tickets).to include(ticket)
+    end
+
+  end
+
+  describe "::resource_category" do
+  
+    it "gets a ticket with a specific resource_category id" do
+      ticket = create(:ticket, :resource_category)
+      resource_category_id = ticket.resource_category.id
+      tickets = Ticket.resource_category(resource_category_id)
+      expect(tickets). to include(ticket)
+    end
+
+  end
+
 end
