@@ -1,4 +1,5 @@
 FactoryBot.define do
+
   factory :organization do
     name { "FAKE" }
     primary_name { "Primary" }
@@ -10,6 +11,7 @@ FactoryBot.define do
     trait :approved do
       status { :approved }
     end
+    
   end
 
 end
