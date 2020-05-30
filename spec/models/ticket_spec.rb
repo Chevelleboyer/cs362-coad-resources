@@ -95,4 +95,15 @@ RSpec.describe Ticket, type: :model do
 
   end
 
+  describe "::region" do
+
+    it "gets a tickets with a specific region id" do
+      ticket = create(:ticket, :region)
+      region_id = ticket.region.id
+      tickets = Ticket.region(region_id)
+      expect(tickets).to include(ticket)
+    end
+
+  end
+
 end
