@@ -12,7 +12,6 @@ RSpec.describe 'Releasing a ticket by an', type: :feature do
     it "is released by the user" do
       log_in_as(user)
       visit(ticket_path(ticket.id))
-      expect(ticket.captured?).to be true
       click_on("Release")
       expect(ticket.open?).to be true
     end
