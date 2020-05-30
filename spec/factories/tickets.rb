@@ -8,15 +8,15 @@ FactoryBot.define do
    	resource_category
 
    	trait :open do
-   		closed { false }
+   	  closed { false }
    	end
 
    	trait :closed do
-   		closed { true }
+   	  closed { true }
    	end
 
    	trait :organization do
-   		organization
+   	  organization
    	end
 
     trait :region do
