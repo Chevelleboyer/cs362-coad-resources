@@ -18,7 +18,7 @@ RSpec.describe User, type: :model do
   describe "methods" do
     it "responds to to_s with the user email" do
       user_email = user.to_s
-      expect(user_email).to eq("fake@email.com")
+      expect(user_email).to eq(user.email)
     end
   end
 
