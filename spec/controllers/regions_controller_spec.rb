@@ -12,4 +12,10 @@ RSpec.describe RegionsController, type: :controller do
       specify { expect(get(:index)).to redirect_to(dashboard_path)}
     end
   end
+
+  context "as a new user" do
+    describe "GET #index" do
+      specify { expect(get(:index)).to redirect_to(new_user_session_path)}
+    end
+  end
 end
