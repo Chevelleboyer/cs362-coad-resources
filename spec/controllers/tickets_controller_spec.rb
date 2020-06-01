@@ -52,5 +52,14 @@ RSpec.describe TicketsController, type: :controller do
          :id => new_ticket.id})).to redirect_to(dashboard_path << "#tickets:open")
       end
     end
+
+    describe "GET #destroy" do
+      it "destroys a ticket" do
+        new_ticket = create(:ticket)
+        expect(get(:destroy, :params => 
+        {:ticket => new_ticket,
+         :id => new_ticket.id})).to redirect_to(dashboard_path << "#tickets")
+      end
+    end
   end
 end

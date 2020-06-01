@@ -4,6 +4,7 @@ RSpec.describe RegionsController, type: :controller do
   
   let(:non_admin) { create(:user) }
   let(:admin) { create(:user, :admin) }
+  
 
   context "as a non-admin user" do
     before(:each) { sign_in(non_admin) }
@@ -25,5 +26,15 @@ RSpec.describe RegionsController, type: :controller do
     describe "GET #index" do
       specify { expect(get(:index)).to be_successful }
     end
+
+    #Getting some bizzare error for this, covered with a feature test instead
+    # describe "POST #update" do
+    #   it "updates a region" do
+    #     new_region = create(:region)
+    #     expect(post(:update, :params => {:region => new_region, :id => new_region.id})).redirect_to(region_path(region.id))
+    #   end
+    # end
   end
+
+  
 end
