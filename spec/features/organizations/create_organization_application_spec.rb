@@ -33,16 +33,6 @@ RSpec.describe 'Creating an Organization Application', type: :feature do
       expect(page).to have_content("Application Submitted")
     end
 
-    # it "leaves a field blank while creating a new organization application" do
-    #   create(:user, :admin)
-    #   log_in_as(user)
-    #   visit(dashboard_path)
-    #   click_on("Create Application")
-    #   choose("organization_liability_insurance_true")
-    #   click_on("Apply")
-    #   expect(page).to have_content("Select one of these options")
-    # end
-
     it "leaves email field blank while crating a new organization application" do
       create(:user, :admin)
       log_in_as(user)
@@ -50,6 +40,16 @@ RSpec.describe 'Creating an Organization Application', type: :feature do
       click_on("Create Application")
       click_on("Apply")
       expect(page).to have_content("Email can't be blank")
+    end
+
+    it "leaves name field blank while crating a new organization application" do
+      create(:user, :admin)
+      log_in_as(user)
+      visit(dashboard_path)
+      click_on("Create Application")
+      fill_in("What is your Organization's email?", with: "fakeorg@email.com")
+      click_on("Apply")
+      expect(page).to have_content("Name can't be blank")
     end
 
   end
