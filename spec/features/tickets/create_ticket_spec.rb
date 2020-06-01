@@ -29,6 +29,19 @@ RSpec.describe 'Creating a Ticket', type: :feature do
       click_on("Send this help request")
       expect(page).not_to have_content("Ticket Submitted")
     end
+
+    it "creates a new ticket with no phone number field" do
+      region = create(:region)
+      resource_category = create(:resource_category)
+
+      visit(new_ticket_path)
+      fill_in("Full Name", with: "First Last")
+      select region.name, from: "Region"
+      select resource_category.name, from: "Resource Category"
+      fill_in("Description", with: "Description")
+      click_on("Send this help request")
+      expect(page).not_to have_content("Ticket Submitted")
+    end
     
   end
 
