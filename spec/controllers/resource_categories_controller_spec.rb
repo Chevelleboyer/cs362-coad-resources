@@ -26,7 +26,15 @@ RSpec.describe ResourceCategoriesController, type: :controller do
         {:resource_category => { name: "FAKE"} })).to redirect_to(resource_categories_path)
       end
     end
+    
+    # describe "GET #activate" do
+    #   it "activates a resource category" do
+    #     resource_category = create(:resource_category, active: false)
+    #     #expect(get(:activate, :params => 
+    #     #{:resource_category => resource_category})).to redirect_to(resource_categories_path(resource_category))
+    #     get(:activate, :params => {:resource_category => resource_category})
+    #   end
+    # end
   end
-
 
 end

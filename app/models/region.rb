@@ -1,3 +1,5 @@
+#The geographical regions associated with each ticket
+
 class Region < ApplicationRecord
 
   has_many :tickets
