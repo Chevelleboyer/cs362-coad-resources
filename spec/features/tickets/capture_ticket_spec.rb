@@ -6,6 +6,7 @@ RSpec.describe 'Capturing a ticket', type: :feature do
   let(:ticket) { create(:ticket, region: region, resource_category: resource_category) }
   let(:organization) { create(:organization, :approved) }
   let(:user) { create(:user, organization: organization) }
+  let(:user_admin) { create(:user, :admin)}
 
   context "user with organization" do
     it "captures a ticket" do
@@ -20,5 +21,17 @@ RSpec.describe 'Capturing a ticket', type: :feature do
       #but ticket object is still not captured?
       #expect(ticket.captured?).to be true
     end
+
   end
+
+  context "as an admin" do
+
+    it "captures a ticket" do
+      log_in_as(user_admin)
+      visit(ticket_path(ticket.id))
+      expect(page).to have_no_link("Capture")
+    end
+
+  end
+
 end
