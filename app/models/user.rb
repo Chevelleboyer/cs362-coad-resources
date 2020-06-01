@@ -1,3 +1,5 @@
+#The admins, organizations, and general users of the system.
+
 class User < ApplicationRecord
 
   enum role: [:admin, :organization]
