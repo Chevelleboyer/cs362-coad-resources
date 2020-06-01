@@ -17,5 +17,7 @@ RSpec.describe 'Updating an Organization', type: :feature do
         click_on("Update Resource")
         expect(page).to have_content("Fake Name")
       end
+
     end
+
 end
