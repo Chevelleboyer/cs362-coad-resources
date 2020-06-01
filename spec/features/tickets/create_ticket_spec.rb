@@ -20,7 +20,7 @@ RSpec.describe 'Creating a Ticket', type: :feature do
     it "creates a new ticket with no name field" do
       region = create(:region)
       resource_category = create(:resource_category)
-
+      
       visit(new_ticket_path)
       fill_in("Phone Number", with: "5415081234")
       select region.name, from: "Region"
@@ -42,7 +42,18 @@ RSpec.describe 'Creating a Ticket', type: :feature do
       click_on("Send this help request")
       expect(page).not_to have_content("Ticket Submitted")
     end
-    
+
+    it "create a new ticket with no region selected" do
+      resource_category = create(:resource_category)
+      visit(new_ticket_path)
+      fill_in("Full Name", with: "First Last")
+      fill_in("Phone Number", with: "5415081234")
+      select resource_category.name, from: "Resource Category"
+      fill_in("Description", with: "Description")
+      click_on("Send this help request")
+      expect(page).not_to have_content("Ticket Submitted")
+    end
+
   end
 
 end
