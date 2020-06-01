@@ -16,6 +16,11 @@ RSpec.describe 'Deleting a Ticket', type: :feature do
       expect(page).to have_content("Ticket #{ticket.id} was deleted.")
     end
 
+    it "is not visible" do
+      log_in_as(user)
+      expect(page).not_to have_selector('id', :text => ticket.id)
+    end
+
   end
   
 end
