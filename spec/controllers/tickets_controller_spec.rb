@@ -26,12 +26,21 @@ RSpec.describe TicketsController, type: :controller do
   context "as an admin" do
     before(:each) { sign_in(admin) }
 
-    describe "POST #release" do
+    describe "GET #release" do
       it "releases a ticket" do
         new_ticket = create(:ticket)
         expect(get(:release, :params =>
         {:ticket => new_ticket,
          :id => new_ticket.id})).to redirect_to(dashboard_path << "#tickets:captured")
+      end
+    end
+
+    describe "GET #close" do
+      it "closes a ticket" do
+        new_ticket = create(:ticket)
+        expect(get(:close, :params =>
+        {:ticket => new_ticket,
+         :id => new_ticket.id})).to redirect_to(dashboard_path << "#tickets:open")
       end
     end
   end
