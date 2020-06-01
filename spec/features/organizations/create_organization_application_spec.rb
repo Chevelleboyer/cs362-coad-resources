@@ -4,6 +4,7 @@ RSpec.describe 'Creating an Organization Application', type: :feature do
   let(:user) { create(:user) }
   
   context "as a new user" do
+
     it "creates a new organization application" do
       create(:user, :admin)
       log_in_as(user)
@@ -31,5 +32,26 @@ RSpec.describe 'Creating an Organization Application', type: :feature do
       click_on("Apply")
       expect(page).to have_content("Application Submitted")
     end
+
+    it "leaves email field blank while crating a new organization application" do
+      create(:user, :admin)
+      log_in_as(user)
+      visit(dashboard_path)
+      click_on("Create Application")
+      click_on("Apply")
+      expect(page).to have_content("Email can't be blank")
+    end
+
+    it "leaves name field blank while crating a new organization application" do
+      create(:user, :admin)
+      log_in_as(user)
+      visit(dashboard_path)
+      click_on("Create Application")
+      fill_in("What is your Organization's email?", with: "fakeorg@email.com")
+      click_on("Apply")
+      expect(page).to have_content("Name can't be blank")
+    end
+
   end
+
 end
