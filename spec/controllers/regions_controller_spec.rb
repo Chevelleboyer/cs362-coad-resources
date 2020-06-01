@@ -27,11 +27,19 @@ RSpec.describe RegionsController, type: :controller do
       specify { expect(get(:index)).to be_successful }
     end
 
-    #Getting some bizzare error for this, covered with a feature test instead
+    describe "POST #create" do
+      it "creates a region" do
+        expect(post(:create, :params => 
+        {:region => { name: "FAKE"} })).to redirect_to(regions_path)
+      end
+    end
+
     # describe "POST #update" do
     #   it "updates a region" do
     #     new_region = create(:region)
-    #     expect(post(:update, :params => {:region => new_region, :id => new_region.id})).redirect_to(region_path(region.id))
+    #     expect(post(:update, :params => 
+    #     {:region => new_region, 
+    #      :id => new_region.id})).redirect_to(region_path(region.id))
     #   end
     # end
   end

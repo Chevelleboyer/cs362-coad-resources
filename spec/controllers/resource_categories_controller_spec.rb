@@ -15,14 +15,6 @@ RSpec.describe ResourceCategoriesController, type: :controller do
       specify { expect(get(:new)).to redirect_to(dashboard_path)}
     end
 
-    # describe "POST #create" do
-    #   it "creates a resource category" do
-    #     resource_category = create(:resource_category)
-    #     expect(post(:create, :params => 
-    #     {:resource_category => resource_category,
-    #      :id => resource_category.id})).to redirect_to(resource_categories_path)
-    #   end
-    # end
   end
 
   context "as an admin user" do
@@ -31,7 +23,7 @@ RSpec.describe ResourceCategoriesController, type: :controller do
     describe "POST #create" do
       it "creates a resource category" do
         expect(post(:create, :params => 
-        {:resource_category => { name: "FAKE "}})).to redirect_to(resource_categories_path)
+        {:resource_category => { name: "FAKE"} })).to redirect_to(resource_categories_path)
       end
     end
   end
