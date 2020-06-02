@@ -80,7 +80,7 @@ RSpec.describe OrganizationsController, type: :controller do
 			end
 
 			it "succeeds" do
-				expect(get(:index)).to be_succesfull
+				expect(get(:index)).to be_successful
 			end
 
 		end
