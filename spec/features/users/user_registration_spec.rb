@@ -24,7 +24,16 @@ RSpec.describe 'User registration', type: :feature do
       fill_in("Password", with: new_password)
       fill_in("Password confirmation", with: new_password)
       click_on("commit")
-      expect(current_path).to eq("/users")
+      expect(page).to have_content("errors prohibited this user from being saved")
+    end
+
+    it "leaves email field blank" do
+      new_email = "new@email.com"
+
+      visit(new_user_registration_path)
+      fill_in("Email", with: new_email)
+      click_on("commit")
+      expect(page).to have_content("errors prohibited this user from being saved")
     end
 
   end
