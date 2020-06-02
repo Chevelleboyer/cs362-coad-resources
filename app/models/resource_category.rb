@@ -1,3 +1,5 @@
+#The different categories of disaster resources offered by the site.
+
 class ResourceCategory < ApplicationRecord
 
   has_and_belongs_to_many :organizations
