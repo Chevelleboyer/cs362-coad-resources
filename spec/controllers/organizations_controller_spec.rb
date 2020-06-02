@@ -30,7 +30,7 @@ RSpec.describe OrganizationsController, type: :controller do
 				sign_in(user)
 			end
 
-			it 'suceeds' do
+			it 'succeeds' do
 				expect(
 					post(
 						:create,
@@ -55,7 +55,7 @@ RSpec.describe OrganizationsController, type: :controller do
 
 		describe 'POST #update' do
 
-			it 'suceeds' do
+			it 'succeeds' do
 				sign_in(user)
 				expect(
 					post(:update, params: { id: user.organization.id, organization: {
@@ -68,6 +68,19 @@ RSpec.describe OrganizationsController, type: :controller do
 								title: 'test'
 							} })
 				).to redirect_to(organization_path(user.organization.id))
+			end
+
+		end
+
+		describe 'GET #index' do
+
+			before do
+				user.confirm
+				sign_in(user)
+			end
+
+			it "succeeds" do
+				expect(get(:index)).to be_succesfull
 			end
 
 		end
