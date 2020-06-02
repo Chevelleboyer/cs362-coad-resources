@@ -27,7 +27,7 @@ RSpec.describe 'User registration', type: :feature do
       expect(page).to have_content("errors prohibited this user from being saved")
     end
 
-    it "leaves email field blank" do
+    it "leaves password field blank" do
       new_email = "new@email.com"
 
       visit(new_user_registration_path)
