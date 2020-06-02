@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe OrganizationsController, type: :controller do
+	let(:user) { create(:user, :admin, :organization) }
 
 	class FakeMailer
 		def new_organization_application
@@ -44,6 +45,29 @@ RSpec.describe OrganizationsController, type: :controller do
 						}
 					)
 				).to redirect_to(organization_application_submitted_path)
+			end
+
+		end
+
+	end
+
+	context "as an admin user" do
+
+		describe 'POST #update' do
+
+			it 'suceeds' do
+				sign_in(user)
+				expect(
+					post(:update, params: { id: user.organization.id, organization: {
+								name: 'Fake',
+								email: 'fake@fake.com',
+								phone: '1306666969',
+								primary_name: 'fake primary name',
+								secondary_name: 'fake secondary name',
+								secondary_phone: '1306966669',
+								title: 'test'
+							} })
+				).to redirect_to(organization_path(user.organization.id))
 			end
 
 		end
